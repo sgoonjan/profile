@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #f5f0e6; color: #2b2620; }
+  a { color: #5a6b4d; text-decoration: none; }
+  a:hover { color: #2b2620; }
+</style>
+<script>
+(function(){
+  function navA(t){ return (t && t.closest) ? t.closest('nav a') : null; }
+  function isSwipe(a){ return a && !((a.getAttribute('style')||'').includes('border-bottom')); }
+  document.addEventListener('mouseover', function(e){ var a=navA(e.target); if(isSwipe(a)){ a.style.backgroundSize='100% 1px'; a.style.color='#2b2620'; }});
+  document.addEventListener('mouseout', function(e){ var a=navA(e.target); if(isSwipe(a)){ a.style.backgroundSize='0% 1px'; a.style.color='#8a7f6a'; }});
+  function sw(t){ return (t && t.closest) ? t.closest('[data-swipe]') : null; }
+  document.addEventListener('mouseover', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-ulon'); var b=el.getAttribute('data-bgon'); if(b) el.style.backgroundColor=b; }});
+  document.addEventListener('mouseout', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-uloff'); var b=el.getAttribute('data-bgoff'); if(b) el.style.backgroundColor=b; }});
+})();
+</script>
+</helmet>
+<div style="font-family: 'EB Garamond', serif; background: #f5f0e6; color: #2b2620; min-height: 100vh;">
+
+  <!-- Header -->
+  <header style="max-width: 1140px; margin: 0 auto; padding: 34px clamp(20px, 5vw, 48px) 0 clamp(20px, 5vw, 48px); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px;">
+    <a href="./Home.dc.html" style="font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; line-height: 1.18; color: #2b2620; white-space: nowrap;">Goonjan Saha</a>
+    <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; padding-top: 6px;">
+      <a href="./Home.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Home</a>
+      <a href="./Work.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Work</a>
+      <a href="./Hobbies.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Hobbies</a>
+      <a href="./Projects.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #2b2620; border-bottom: 1px solid #2b2620; padding-bottom: 2px;">Projects</a>
+      <a href="./Contact.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Heading -->
+  <section data-screen-label="Projects intro" style="max-width: 1140px; margin: 0 auto; padding: 72px clamp(20px, 5vw, 48px) 32px clamp(20px, 5vw, 48px);">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 26px;">Field journal · Works in progress</div>
+    <h1 style="font-family: 'EB Garamond', serif; font-size: 52px; font-weight: 500; line-height: 1.08; margin: 0; text-wrap: pretty;">Things I build when nobody is asking.</h1>
+  </section>
+
+  <!-- KeyArrange -->
+  <section data-screen-label="KeyArrange" style="max-width: 1140px; margin: 0 auto; padding: 40px clamp(20px, 5vw, 48px);">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 26px;">Project 01</div>
+      <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 34px; align-items: center;">
+        <div style="position: relative; background: #fffdf7; padding: 10px; box-shadow: 0 6px 18px rgba(43,38,32,.18); transform: rotate(-1.6deg); transition: all .35s ease;" style-hover="transform: rotate(0deg) translateY(-8px); box-shadow: 0 14px 30px rgba(43,38,32,.25);">
+          <div style="position: absolute; top: -12px; left: 50%; margin-left: -40px; width: 80px; height: 24px; background: rgba(216,207,186,.7); transform: rotate(3deg); z-index: 2;"></div>
+          <div style="height: 230px; background: #e5e5ee; display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <div style="width: 6px; height: 26px; background: #8ca174;"></div>
+            <div style="width: 6px; height: 58px; background: #7d926a;"></div>
+            <div style="width: 6px; height: 98px; background: #5a6b4d;"></div>
+            <div style="width: 6px; height: 44px; background: #7d926a;"></div>
+            <div style="width: 6px; height: 120px; background: #5a6b4d;"></div>
+            <div style="width: 6px; height: 72px; background: #7d926a;"></div>
+            <div style="width: 6px; height: 34px; background: #8ca174;"></div>
+            <div style="width: 6px; height: 84px; background: #5a6b4d;"></div>
+            <div style="width: 6px; height: 134px; background: #2b2620;"></div>
+            <div style="width: 6px; height: 64px; background: #7d926a;"></div>
+            <div style="width: 6px; height: 38px; background: #8ca174;"></div>
+            <div style="width: 6px; height: 102px; background: #5a6b4d;"></div>
+            <div style="width: 6px; height: 50px; background: #7d926a;"></div>
+            <div style="width: 6px; height: 24px; background: #8ca174;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
+            <h2 style="font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 600; margin: 0;">KeyArrange</h2>
+          </div>
+          <p style="font-size: 18px; line-height: 1.6; color: #5c5344; margin: 0 0 14px 0;">Feed it any MP3, get back piano sheet music you can actually play. It listens to the song, arranges it for two hands, so that you can start playing immediately.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px;">
+            <span style="background: #fffdf7; border: 1px solid #d8cfba; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(-0.5deg); display: inline-block;">mp3 in</span>
+            <span style="background: #fffdf7; border: 1px solid #d8cfba; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(0.4deg); display: inline-block;">sheet music out</span>
+            <span style="background: #fffdf7; border: 1px solid #d8cfba; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(0.5deg); display: inline-block;">music arrangement</span>
+          </div>
+          <div style="display: flex; gap: 14px;">
+            <a href="https://huggingface.co/spaces/Goonjan/KeyArrange" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; background-color: #5a6b4d; color: #f5f0e6; padding: 13px 20px; display: inline-flex; align-items: center; gap: 10px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 20px calc(100% - 9px); background-size: 0% 1px; transition: background-color .3s ease, background-size .4s ease;" data-swipe="1" data-ulon="calc(100% - 40px) 1px" data-uloff="0% 1px" data-bgon="#7d926a" data-bgoff="#5a6b4d" target="_blank" rel="noopener">Try it →</a>
+            <a href="https://github.com/sgoonjan/KeyArrange" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; background: transparent; border: 1px solid #2b2620; color: #2b2620; padding: 13px 20px; display: inline-flex; align-items: center; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 20px calc(100% - 9px); background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="calc(100% - 40px) 1px" data-uloff="0% 1px" target="_blank" rel="noopener" data-repo="keyarrange">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vamsha Vriksha -->
+  <section data-screen-label="Vamsha Vriksha" style="max-width: 1140px; margin: 0 auto; padding: 40px clamp(20px, 5vw, 48px) 72px clamp(20px, 5vw, 48px);">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 26px;">Project 02</div>
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 34px; align-items: center;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
+            <h2 style="font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 600; margin: 0;">Vamsha Vriksha</h2>
+          </div>
+          <p style="font-size: 18px; line-height: 1.6; color: #5c5344; margin: 0 0 14px 0;">An interactive knowledge graph for Indian mythology — every god, sage, weapon, and curse connected the way the epics actually connect them.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px;">
+            <span style="background: #fffdf7; border: 1px solid #d8cfba; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(0.4deg); display: inline-block;">knowledge graph</span>
+            <span style="background: #fffdf7; border: 1px solid #d8cfba; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 6px 12px; transform: rotate(-0.5deg); display: inline-block;">indian mythology</span>
+            </div>
+          <div style="display: flex; gap: 14px;">
+            <a href="https://sgoonjan.github.io/VamshaVriksha/" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; background-color: #5a6b4d; color: #f5f0e6; padding: 13px 20px; display: inline-flex; align-items: center; gap: 10px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 20px calc(100% - 9px); background-size: 0% 1px; transition: background-color .3s ease, background-size .4s ease;" data-swipe="1" data-ulon="calc(100% - 40px) 1px" data-uloff="0% 1px" data-bgon="#7d926a" data-bgoff="#5a6b4d" target="_blank" rel="noopener">Explore →</a>
+            <a href="https://github.com/sgoonjan/VamshaVriksha" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; background: transparent; border: 1px solid #2b2620; color: #2b2620; padding: 13px 20px; display: inline-flex; align-items: center; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 20px calc(100% - 9px); background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="calc(100% - 40px) 1px" data-uloff="0% 1px" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div style="position: relative; background: #fffdf7; padding: 10px; box-shadow: 0 6px 18px rgba(43,38,32,.18); transform: rotate(1.6deg); transition: all .35s ease;" style-hover="transform: rotate(0deg) translateY(-8px); box-shadow: 0 14px 30px rgba(43,38,32,.25);">
+          <div style="position: absolute; top: -12px; left: 50%; margin-left: -40px; width: 80px; height: 24px; background: rgba(216,207,186,.7); transform: rotate(-3deg); z-index: 2;"></div>
+          <div style="height: 230px; background: #ede5d2; display: flex; align-items: center; justify-content: center;">
+            <div style="position: relative; width: 160px; height: 150px;">
+              <div style="position: absolute; left: 78px; top: 86px; width: 4px; height: 56px; background: #5a6b4d;"></div>
+              <div style="position: absolute; left: 80px; top: 90px; width: 46px; height: 3px; background: #5a6b4d; transform: rotate(-42deg); transform-origin: 0 50%;"></div>
+              <div style="position: absolute; left: 80px; top: 90px; width: 46px; height: 3px; background: #5a6b4d; transform: rotate(-138deg); transform-origin: 0 50%;"></div>
+              <div style="position: absolute; left: 80px; top: 68px; width: 34px; height: 3px; background: #7d926a; transform: rotate(-70deg); transform-origin: 0 50%;"></div>
+              <div style="position: absolute; left: 80px; top: 68px; width: 34px; height: 3px; background: #7d926a; transform: rotate(-110deg); transform-origin: 0 50%;"></div>
+              <div style="position: absolute; left: 71px; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: #5a6b4d;"></div>
+              <div style="position: absolute; left: 106px; top: 38px; width: 16px; height: 16px; border-radius: 50%; background: #7d926a;"></div>
+              <div style="position: absolute; left: 42px; top: 38px; width: 16px; height: 16px; border-radius: 50%; background: #7d926a;"></div>
+              <div style="position: absolute; left: 122px; top: 68px; width: 13px; height: 13px; border-radius: 50%; background: #8ca174;"></div>
+              <div style="position: absolute; left: 28px; top: 68px; width: 13px; height: 13px; border-radius: 50%; background: #8ca174;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slim footer -->
+  <footer style="background: #3b322a;">
+    <div style="max-width: 1140px; margin: 0 auto; padding: 26px clamp(20px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #b3a892;">Goonjan Saha — field journal</span>
+      <a href="./Contact.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #cfc4ac; padding-bottom: 3px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="100% 1px" data-uloff="0% 1px">Write to me →</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

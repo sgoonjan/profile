@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #f5f0e6; color: #2b2620; }
+  a { color: #5a6b4d; text-decoration: none; }
+  a:hover { color: #2b2620; }
+  [data-playbtn]:hover { border-color: #5a6b4d !important; background: #5a6b4d !important; box-shadow: 0 2px 8px rgba(90,107,77,.3) !important; }
+  [data-playbtn]:hover .playicon { border-left-color: #f5f0e6 !important; }
+</style>
+<script>
+(function(){
+  function navA(t){ return (t && t.closest) ? t.closest('nav a') : null; }
+  function isSwipe(a){ return a && !((a.getAttribute('style')||'').includes('border-bottom')); }
+  document.addEventListener('mouseover', function(e){ var a=navA(e.target); if(isSwipe(a)){ a.style.backgroundSize='100% 1px'; a.style.color='#2b2620'; }});
+  document.addEventListener('mouseout', function(e){ var a=navA(e.target); if(isSwipe(a)){ a.style.backgroundSize='0% 1px'; a.style.color='#8a7f6a'; }});
+  function sw(t){ return (t && t.closest) ? t.closest('[data-swipe]') : null; }
+  document.addEventListener('mouseover', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-ulon'); }});
+  document.addEventListener('mouseout', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-uloff'); }});
+})();
+</script>
+</helmet>
+<div style="font-family: 'EB Garamond', serif; background: #f5f0e6; color: #2b2620; min-height: 100vh;">
+
+  <!-- Header -->
+  <header style="max-width: 1140px; margin: 0 auto; padding: 34px clamp(20px, 5vw, 48px) 0 clamp(20px, 5vw, 48px); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px;">
+    <a href="./Home.dc.html" style="font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; line-height: 1.18; color: #2b2620; white-space: nowrap;">Goonjan Saha</a>
+    <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; padding-top: 6px;">
+      <a href="./Home.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Home</a>
+      <a href="./Work.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Work</a>
+      <a href="./Hobbies.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #2b2620; border-bottom: 1px solid #2b2620; padding-bottom: 2px;">Hobbies</a>
+      <a href="./Projects.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Projects</a>
+      <a href="./Contact.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7f6a; padding-bottom: 2px; background-image: linear-gradient(#2b2620, #2b2620); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: color .3s ease, background-size .4s ease;" style-hover="color: #2b2620; background-size: 100% 1px;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Heading -->
+  <section data-screen-label="Hobbies intro" style="max-width: 1140px; margin: 0 auto; padding: 72px clamp(20px, 5vw, 48px) 24px clamp(20px, 5vw, 48px);">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 26px;">Field journal · Specimen index</div>
+    <h1 style="font-family: 'EB Garamond', serif; font-size: 52px; font-weight: 500; line-height: 1.08; margin: 0; text-wrap: pretty;">My Personal Collection.</h1>
+  </section>
+
+  <!-- Painting -->
+  <section data-screen-label="Painting" style="max-width: 1140px; margin: 0 auto; padding: 56px clamp(20px, 5vw, 48px) 40px clamp(20px, 5vw, 48px);">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 36px;">
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <h2 style="font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 600; margin: 0">The Studio</h2>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7f6a">01 — selected pieces</span>
+      </div>
+      
+    </div>
+    <div style="background: #efe9db; padding: 44px 40px; display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: flex-start;">
+      <sc-for list="{{ arts }}" as="a" hint-placeholder-count="7">
+        <div onClick="{{ a.open }}" onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" style="{{ a.frameStyle }}" style-hover="transform: rotate(0deg) translateY(-10px); box-shadow: 0 16px 34px rgba(43,38,32,.28); z-index: 3;">
+          <div style="{{ a.slotBox }}">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ a.id }}" shape="{{ a.shape }}" fit="contain" placeholder="{{ a.placeholder }}" hint-size="100%,100%"></x-import>
+            <div style="{{ a.noteStyle }}">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #b0653a; border: 1px dashed #b0653a; padding: 3px 8px; background: rgba(255,253,247,.85);">medium</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; line-height: 1.7; color: #2b2620; text-align: center; max-width: 90%;">{{ a.medium }}</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #5a6b4d;">click to enlarge</span>
+            </div>
+          </div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8a7f6a; text-align: center; padding-top: 12px; white-space: nowrap;">{{ a.caption }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Artwork lightbox -->
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position: fixed; inset: 0; background: rgba(43,38,32,.82); z-index: 50; display: flex; align-items: center; justify-content: center; padding: 40px; cursor: zoom-out;">
+      <div onClick="{{ stop }}" style="position: relative; background: #fffdf7; padding: 16px 16px 22px 16px; box-shadow: 0 24px 60px rgba(0,0,0,.45); cursor: default; max-width: min(92vw, 900px);">
+        <div style="position: absolute; top: -13px; left: 50%; margin-left: -45px; width: 90px; height: 26px; background: rgba(216,207,186,.7); transform: rotate(-4deg); z-index: 2;"></div>
+        <button onClick="{{ closeLightbox }}" style="position: absolute; top: 10px; right: 10px; z-index: 3; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; background: #2b2620; color: #f5f0e6; border: none; border-radius: 0; padding: 7px 12px; cursor: pointer; transition: background .3s ease;" style-hover="background: #5a6b4d;">Close ✕</button>
+        <div style="{{ lightboxBox }}">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ lightboxId }}" shape="{{ lightboxShape }}" fit="contain" placeholder="{{ lightboxPlaceholder }}" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-top: 16px;">
+          <span style="font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 600; color: #2b2620;">{{ lightboxCaption }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #8a7f6a; text-align: right;">{{ lightboxMedium }}</span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- Gardening -->
+  <section data-screen-label="Gardening" style="max-width: 1140px; margin: 0 auto; padding: 56px clamp(20px, 5vw, 48px) 40px clamp(20px, 5vw, 48px);">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 36px;">
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <h2 style="font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 600; margin: 0">The Conservatory</h2>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7f6a">02 — one pot at a time</span>
+      </div>
+      
+    </div>
+    <div id="garden-row" style="display: flex; gap: 26px; justify-content: center; align-items: flex-start;">
+      <sc-for list="{{ plants }}" as="p" hint-placeholder-count="3">
+        <div onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" style="{{ p.frameStyle }}" style-hover="box-shadow: 0 10px 24px rgba(43,38,32,.14); transform: translateY(-5px);">
+          <div style="{{ p.leafStyle }}"></div>
+          <div style="{{ p.slotStyle }}">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.id }}" shape="rect" fit="contain" placeholder="{{ p.placeholder }}" hint-size="100%,300px"></x-import>
+            <div style="{{ p.noteStyle }}">
+              <span style="font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; font-weight: 600; color: #3f4a34; text-align: center; text-shadow: 0 1px 2px rgba(245,240,230,.9);">{{ p.sci }}</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.05em; line-height: 1.7; color: #2b2620; text-align: center; max-width: 92%;">{{ p.fact }}</span>
+            </div>
+          </div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8a7f6a; padding-top: 12px;">{{ p.caption }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Piano -->
+  <section data-screen-label="Piano" id="piano" style="max-width: 1140px; margin: 0 auto; padding: 56px clamp(20px, 5vw, 48px) 72px clamp(20px, 5vw, 48px);">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 36px;">
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <h2 style="font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 600; margin: 0">The Music Room</h2>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7f6a">03 — arranging eighty-eight keys</span>
+      </div>
+      <span style="font-family: 'Caveat', cursive; font-size: 27px; font-weight: 600; color: #b0653a; transform: rotate(+0deg); transform-origin: right center; white-space: nowrap; align-self: flex-end; line-height: 1">click to play the keys</span>
+    </div>
+    <div style="position: relative; display: flex; height: 130px; border: 1px solid #d8cfba; background: #fffdf7; margin-bottom: 44px;">
+      <sc-for list="{{ pianoKeys }}" as="k" hint-placeholder-count="21">
+        <div onMouseDown="{{ k.play }}" style="flex: 1; background: #fffdf7; border-right: 1px solid #d8cfba; border-bottom: 4px solid #2b2620; position: relative; cursor: pointer; transition: background .15s ease, box-shadow .15s ease;" style-hover="background: #efe6cf; box-shadow: inset 0 -8px 0 #8ca174;" style-active="background: #e5d9b8; box-shadow: inset 0 -8px 0 #5a6b4d;"></div>
+      </sc-for>
+      <sc-for list="{{ blackKeys }}" as="b" hint-placeholder-count="15">
+        <div onMouseDown="{{ b.play }}" style="position: absolute; top: 0; left: {{ b.left }}; width: 16px; height: 60%; background: #262620; z-index: 2; cursor: pointer; transition: background .15s ease, box-shadow .15s ease;" style-hover="background: #4a453c; box-shadow: inset 0 -6px 0 #8ca174;" style-active="background: #5a6b4d;"></div>
+      </sc-for>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <sc-for list="{{ songs }}" as="s" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 20px; background: #fffdf7; border: 1px solid #e4dcc9; padding: 16px 22px; transition: all .3s ease;" style-hover="border-color: #d8cfba; box-shadow: 0 6px 16px rgba(43,38,32,.1);">
+          <div onClick="{{ s.toggle }}" data-playbtn="1" style="{{ s.btnStyle }}" style-hover="border-color: #5a6b4d; background: #5a6b4d; box-shadow: 0 2px 8px rgba(90,107,77,.3);">
+            <span class="playicon" style="{{ s.iconStyle }}"></span>
+          </div>
+          <span style="font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; min-width: 220px;">{{ s.title }}</span>
+          <div onMouseDown="{{ s.seek }}" style="flex: 1; padding: 11px 0; cursor: pointer; position: relative;">
+            <div style="height: 1.5px; background: #e4dcc9; position: relative;">
+              <div style="{{ s.barStyle }}"></div>
+              <div style="{{ s.knobStyle }}"></div>
+            </div>
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #8a7f6a; white-space: nowrap;">{{ s.tag }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Slim footer -->
+  <footer style="background: #3b322a;">
+    <div style="max-width: 1140px; margin: 0 auto; padding: 26px clamp(20px, 5vw, 48px); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #b3a892;">Goonjan Saha — field journal</span>
+      <a href="./Contact.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #cfc4ac; padding-bottom: 3px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="100% 1px" data-uloff="0% 1px">Write to me →</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hoveredPlant: -1, playing: -1, pos: 0, hoveredArt: -1, lightbox: -1, artAR: {}, gardenW: 0 };
+  _el(src) {
+    if (!this._songEl) {
+      const el = new Audio(src);
+      el.preload = 'metadata';
+      el.addEventListener('loadedmetadata', () => this.setState({ dur: el.duration }));
+      el.addEventListener('play', () => {
+        this.setState({ playing: 0 });
+        cancelAnimationFrame(this._raf);
+        this._raf = requestAnimationFrame(this._tick);
+      });
+      el.addEventListener('pause', () => {
+        cancelAnimationFrame(this._raf);
+        this.setState({ playing: -1, pos: el.currentTime });
+      });
+      el.addEventListener('ended', () => this.setState({ playing: -1, pos: 0 }));
+      this._songEl = el;
+    }
+    return this._songEl;
+  }
+  _killSong() {
+    cancelAnimationFrame(this._raf);
+    this._raf = 0;
+    if (this._songEl) { this._songEl.pause(); this._songEl.currentTime = 0; }
+  }
+  _tick = () => {
+    const el = this._songEl;
+    if (!el || el.paused) return;
+    if (!this._seeking) this.setState({ pos: el.currentTime });
+    this._raf = requestAnimationFrame(this._tick);
+  };
+  componentDidMount() {
+    if (location.hash === '#piano') {
+      setTimeout(() => {
+        const el = document.getElementById('piano');
+        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+      }, 400);
+    }
+    // Let each polaroid adopt the natural aspect ratio of the image dropped
+    // into it, so a filled slot never shows contain letterbox strips.
+    this._scanAR();
+    this._arTimer = setInterval(() => this._scanAR(), 800);
+    this._measureGarden();
+    this._onResize = () => this._measureGarden();
+    window.addEventListener('resize', this._onResize);
+  }
+  _measureGarden() {
+    const el = document.getElementById('garden-row');
+    if (el && el.clientWidth && el.clientWidth !== this.state.gardenW) {
+      this.setState({ gardenW: el.clientWidth });
+    }
+  }
+  componentWillUnmount() {
+    this._killSong();
+    if (this._arTimer) clearInterval(this._arTimer);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+  _scanAR() {
+    const next = {}; let changed = false;
+    document.querySelectorAll('image-slot[id^="art-"], image-slot[id^="plant-"]').forEach(el => {
+      const img = el.shadowRoot && el.shadowRoot.querySelector('img');
+      if (img && img.naturalWidth && img.naturalHeight) {
+        const r = img.naturalWidth / img.naturalHeight;
+        next[el.id] = r;
+        if (Math.abs((this.state.artAR[el.id] || 0) - r) > 0.001) changed = true;
+      }
+    });
+    if (changed) this.setState(s => ({ artAR: { ...s.artAR, ...next } }));
+    this._measureGarden();
+  }
+  _ctx() {
+    if (!this._audio) this._audio = new (window.AudioContext || window.webkitAudioContext)();
+    if (this._audio.state === 'suspended') this._audio.resume();
+    return this._audio;
+  }
+  _stopSong() {
+    if (!this._songBus || !this._audio) return;
+    const ctx = this._audio, g = this._songBus.gain;
+    g.cancelScheduledValues(ctx.currentTime);
+    g.setValueAtTime(g.value, ctx.currentTime);
+    g.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.06);
+    const dead = this._songBus;
+    setTimeout(() => { try { dead.disconnect(); } catch (e) {} }, 120);
+    this._songBus = null;
+  }
+  _tone(freq, when, dur, vol, bus) {
+    // Piano-like voice: fundamental + decaying harmonics + a soft hammer attack.
+    const ctx = this._ctx();
+    const t = ctx.currentTime + (when || 0);
+    const D = dur || 0.9;
+    const master = ctx.createGain();
+    const v = vol || 0.26;
+    master.gain.setValueAtTime(0.0001, t);
+    master.gain.linearRampToValueAtTime(v, t + 0.008);
+    master.gain.exponentialRampToValueAtTime(v * 0.35, t + D * 0.35);
+    master.gain.exponentialRampToValueAtTime(0.0001, t + D);
+    const lp = ctx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(Math.min(9000, freq * 9), t);
+    lp.frequency.exponentialRampToValueAtTime(Math.max(600, freq * 2), t + D);
+    master.connect(lp).connect(bus || ctx.destination);
+    const partials = [[1, 1], [2, 0.45], [3, 0.22], [4, 0.1], [5, 0.05]];
+    partials.forEach(([mult, amp]) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq * mult;
+      // slight inharmonicity on upper partials, like a real string
+      if (mult > 2) osc.frequency.value *= 1 + 0.0006 * mult * mult;
+      g.gain.setValueAtTime(amp, t);
+      g.gain.exponentialRampToValueAtTime(amp * 0.0002 + 0.00001, t + D * (1.05 - mult * 0.12));
+      osc.connect(g).connect(master);
+      osc.start(t); osc.stop(t + D + 0.05);
+    });
+  }
+  renderVals() {
+    const semi = (n) => 261.63 * Math.pow(2, n / 12); // n=0 is middle C (C4)
+    // three octaves C3..B5, middle octave = C4; black key after white indices 0,1,3,4,5
+    const whitePattern = [0, 2, 4, 5, 7, 9, 11];
+    const hasBlackAfter = [true, true, false, true, true, true, false];
+    const pianoKeys = [];
+    const blackKeys = [];
+    const totalWhite = 21;
+    let wIndex = 0;
+    for (let oct = -1; oct < 2; oct++) {
+      for (let i = 0; i < 7; i++) {
+        const wSemi = whitePattern[i] + oct * 12;
+        pianoKeys.push({
+          play: () => this._tone(semi(wSemi), 0, 1.2)
+        });
+        if (hasBlackAfter[i]) {
+          blackKeys.push({
+            left: 'calc(' + (((wIndex + 1) / totalWhite) * 100) + '% - 8px)',
+            play: (ev) => { ev.stopPropagation(); this._tone(semi(wSemi + 1), 0, 1.2); }
+          });
+        }
+        wIndex++;
+      }
+    }
+    const SONG_SRC = './uploads/piano.mp3';
+    const titles = ['A Thousand Years \u2014 Christina Perri'];
+    const fmt = (x) => {
+      const t = Math.max(0, Math.floor(x || 0));
+      return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0');
+    };
+    const songs = titles.map((title, i) => {
+      const playing = this.state.playing === i;
+      const dur = this.state.dur || 82;
+      const pos = Math.max(0, Math.min(dur, this.state.pos || 0));
+      const pct = (pos / dur) * 100;
+      return {
+        title,
+        tag: fmt(pos) + ' / ' + fmt(dur),
+        btnStyle: {
+          width: '38px', height: '38px', borderRadius: '50%', flexShrink: 0,
+          border: '1.5px solid ' + (playing ? '#5a6b4d' : '#8a7f6a'),
+          background: playing ? '#5a6b4d' : '#fffdf7',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', transition: 'all .3s ease'
+        },
+        iconStyle: playing
+          ? { width: '10px', height: '10px', background: '#f5f0e6' }
+          : { width: 0, height: 0, borderTop: '7px solid transparent', borderBottom: '7px solid transparent', borderLeft: '11px solid #5c5344', marginLeft: '3px' },
+        barStyle: {
+          position: 'absolute', left: 0, top: '-0.75px', height: '3px', background: '#5a6b4d',
+          width: pct + '%'
+        },
+        knobStyle: {
+          position: 'absolute', top: '-5px', left: pct + '%', marginLeft: '-6px',
+          width: '12px', height: '12px', borderRadius: '50%', background: '#5a6b4d',
+          opacity: playing || pos > 0 ? 1 : 0, transition: 'opacity .25s ease', pointerEvents: 'none'
+        },
+        toggle: () => {
+          const el = this._el(SONG_SRC);
+          if (this.state.playing === i) { el.pause(); return; }
+          const p = this.state.pos || 0;
+          el.currentTime = p >= (el.duration || dur) - 0.15 ? 0 : p;
+          el.play();
+        },
+        seek: (ev) => {
+          ev.preventDefault();
+          const el = this._el(SONG_SRC);
+          const rect = ev.currentTarget.getBoundingClientRect();
+          const total = el.duration || dur;
+          const wasPlaying = this.state.playing === i;
+          if (wasPlaying) el.pause();
+          const at = (cx) => Math.max(0, Math.min(1, (cx - rect.left) / rect.width)) * total;
+          let cur = at(ev.clientX);
+          this._seeking = true;
+          this.setState({ pos: cur });
+          const move = (e2) => { cur = at(e2.clientX); this.setState({ pos: cur }); };
+          const up = () => {
+            window.removeEventListener('mousemove', move);
+            window.removeEventListener('mouseup', up);
+            this._seeking = false;
+            el.currentTime = cur >= total - 0.15 ? 0 : cur;
+            if (wasPlaying) el.play();
+          };
+          window.addEventListener('mousemove', move);
+          window.addEventListener('mouseup', up);
+        }
+      };
+    });
+    const artDefs = [
+      { w: 200, cap: 'oil pastel \u2014 no. 1', rot: -2.5, medium: 'oil pastels', shape: 'rect' },
+      { w: 170, cap: 'oil pastel \u2014 no. 2', rot: 1.8, medium: 'oil pastels', shape: 'rect' },
+      { w: 190, cap: 'oil pastel \u2014 no. 3', rot: -1.2, medium: 'oil pastels', shape: 'rect' },
+      { w: 180, cap: 'oil pastel \u2014 no. 4', rot: 2.6, medium: 'oil pastels', shape: 'rect' },
+      { w: 250, cap: 'lippan \u2014 mirror & clay', rot: -1.8, medium: 'rendition of Lippan art', shape: 'circle', square: true },
+      { w: 240, cap: 'words to keep', rot: 1.4, medium: 'quote art', shape: 'rect', tall: true },
+      { w: 250, cap: 'wearable canvas', rot: -2.2, medium: 'canvas shoe painting \u2014 acrylic', shape: 'rect', wide: true }
+    ];
+    const arts = artDefs.map((d, i) => {
+      const ar = this.state.artAR['art-' + (i + 1)];
+      const defaultH = d.square ? d.w : d.tall ? Math.round(d.w * 1.3) : d.wide ? Math.round(d.w * 0.62) : Math.round(d.w * 1.414);
+      // A filled circle stays square (so the crop is circular); everything else
+      // takes the image's real aspect ratio once known, else its default frame.
+      const h = d.shape === 'circle' ? d.w : (ar ? Math.round(d.w / ar) : defaultH);
+      return {
+        id: 'art-' + (i + 1),
+        caption: d.cap,
+        medium: d.medium,
+        shape: d.shape,
+        placeholder: 'artwork ' + (i + 1),
+        frameStyle: {
+          position: 'relative', background: '#fffdf7', padding: '10px 10px 6px 10px',
+          boxShadow: '0 6px 18px rgba(43,38,32,.18)',
+          transform: 'rotate(' + d.rot + 'deg)',
+          transition: 'all .35s ease', cursor: 'zoom-in'
+        },
+        slotBox: { width: d.w + 'px', height: h + 'px', position: 'relative' },
+        noteStyle: {
+          position: 'absolute', inset: 0, zIndex: 3, display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '10px',
+          background: 'rgba(245,240,230,.55)',
+          backdropFilter: this.state.hoveredArt === i ? 'blur(5px)' : 'blur(0px)',
+          WebkitBackdropFilter: this.state.hoveredArt === i ? 'blur(5px)' : 'blur(0px)',
+          borderRadius: d.shape === 'circle' ? '50%' : '0',
+          opacity: this.state.hoveredArt === i ? 1 : 0,
+          pointerEvents: 'none',
+          transition: 'opacity .35s ease, backdrop-filter .35s ease'
+        },
+        enter: () => this.setState({ hoveredArt: i }),
+        leave: () => this.setState({ hoveredArt: -1 }),
+        open: () => this.setState({ lightbox: i, hoveredArt: -1 })
+      };
+    });
+    const lb = this.state.lightbox;
+    const lbDef = lb >= 0 ? artDefs[lb] : null;
+    const lbAR = lbDef ? this.state.artAR['art-' + (lb + 1)] : null;
+    const lbSize = lbDef ? Math.min(620, Math.round(window.innerHeight * 0.56)) : 0;
+    const plantDefs = [
+      { cap: 'pot 01 \u2014 ZZ plant', sci: 'Zamioculcas zamiifolia', fact: 'Stores water in potato-like rhizomes, so it shrugs off weeks of neglect and low light \u2014 the plant that refuses to die.' },
+      { cap: 'pot 02 \u2014 Parlor palm', sci: 'Chamaedorea elegans', fact: 'A Victorian parlor favorite that thrives in dim corners and filters indoor air \u2014 slow, steady, and unfussy.' },
+      { cap: 'pot 03 \u2014 Brazil wood', sci: 'Paubrasilia echinata', fact: 'The tree that gave Brazil its name; its dense red heartwood is prized for crafting violin bows.' }
+    ];
+    // Size each plant frame to its photo's real aspect ratio at a shared height,
+    // so the three fit one row, are fully visible, and show no grey letterbox.
+    const plantARs = plantDefs.map((_, i) => this.state.artAR['plant-' + (i + 1)] || 0.72);
+    const sumAR = plantARs.reduce((a, b) => a + b, 0);
+    const usableW = (this.state.gardenW || 992) - 26 * 2 - 20 * 3; // row width - gaps - frame padding
+    const plantH = Math.max(180, Math.min(360, Math.floor(usableW / sumAR)));
+    const plants = plantDefs.map((d, i) => ({
+      id: 'plant-' + (i + 1),
+      caption: d.cap,
+      sci: d.sci,
+      fact: d.fact,
+      placeholder: 'plant photo ' + (i + 1),
+      noteStyle: {
+        position: 'absolute', inset: 0, zIndex: 3, display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px',
+        background: 'rgba(245,240,230,.82)',
+        backdropFilter: this.state.hoveredPlant === i ? 'blur(5px)' : 'blur(0px)',
+        WebkitBackdropFilter: this.state.hoveredPlant === i ? 'blur(5px)' : 'blur(0px)',
+        opacity: this.state.hoveredPlant === i ? 1 : 0,
+        pointerEvents: 'none',
+        transition: 'opacity .35s ease, backdrop-filter .35s ease'
+      },
+      frameStyle: {
+        position: 'relative', background: '#fffdf7', border: '1px solid #e4dcc9',
+        padding: '10px 10px 16px 10px', transition: 'all .35s ease',
+        width: Math.round(plantH * plantARs[i] + 20) + 'px'
+      },
+      slotStyle: { height: plantH + 'px', width: '100%', position: 'relative' },
+      enter: () => this.setState({ hoveredPlant: i }),
+      leave: () => this.setState({ hoveredPlant: -1 }),
+      leafStyle: {
+        position: 'absolute', top: '-9px', left: '50%', marginLeft: '-13px',
+        width: '26px', height: '14px',
+        background: 'linear-gradient(135deg, #8ca174, #5a6b4d)',
+        borderRadius: '0 100% 0 100%',
+        transform: this.state.hoveredPlant === i ? 'rotate(-14deg) scale(1)' : 'rotate(-40deg) scale(0)',
+        transformOrigin: 'bottom left',
+        transition: 'transform .4s cubic-bezier(.34,1.56,.64,1)',
+        zIndex: 2
+      }
+    }));
+    return {
+      pianoKeys, blackKeys, songs, arts, plants,
+      lightboxOpen: lb >= 0,
+      lightboxId: lbDef ? 'art-' + (lb + 1) : '',
+      lightboxShape: lbDef ? lbDef.shape : 'rect',
+      lightboxPlaceholder: lbDef ? 'artwork ' + (lb + 1) : '',
+      lightboxCaption: lbDef ? lbDef.cap : '',
+      lightboxMedium: lbDef ? lbDef.medium : '',
+      lightboxBox: lbDef ? {
+        width: lbSize + 'px',
+        height: (lbDef.shape === 'circle' ? lbSize : (lbAR ? Math.round(lbSize / lbAR) : (lbDef.tall ? Math.round(lbSize * 1.1) : lbDef.wide ? Math.round(lbSize * 0.62) : Math.round(lbSize * 1.414)))) + 'px'
+      } : {},
+      closeLightbox: () => this.setState({ lightbox: -1 }),
+      stop: (ev) => ev.stopPropagation()
+    };
+  }
+}
+</script>
+</body>
+</html>
