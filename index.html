@@ -1,16 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Goonjan Saha</title>
-<meta http-equiv="refresh" content="0; url=./Home.dc.html">
-<link rel="canonical" href="./Home.dc.html">
-<style>html,body{margin:0;background:#f5f0e6;color:#2b2620;font-family:Georgia,serif}
-.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center}</style>
+<script src="./support.js"></script>
 </head>
 <body>
-<div class="wrap"><a href="./Home.dc.html">Entering…</a></div>
-<script>location.replace('./Home.dc.html');</script>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Caveat:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #f5f0e6; color: #2b2620; }
+  a { color: #5a6b4d; text-decoration: none; }
+  a:hover { color: #2b2620; }
+  ::placeholder { color: #8a7f6a; font-family: 'IBM Plex Mono', monospace; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-28px) rotate(-3deg); } to { opacity: 1; transform: none; } }
+  @keyframes solidify { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes stopIn {
+    0%   { opacity: 0; transform: translate(-66px, -46px) rotate(-11deg) scale(.9); }
+    8%   { opacity: 1; transform: translate(-66px, -46px) rotate(-11deg) scale(.9); }
+    38%  { opacity: 1; transform: translate(-36px, -22px) rotate(-5deg) scale(.94); }
+    68%  { opacity: 1; transform: translate(-14px, -8px) rotate(4deg) scale(.985); }
+    100% { opacity: 1; transform: none; }
+  }
+  @keyframes tapeApply {
+    0%   { opacity: 0; transform: perspective(420px) rotate(-4deg) rotateX(-92deg) translateY(-7px); }
+    62%  { opacity: 1; transform: perspective(420px) rotate(-4deg) rotateX(14deg); }
+    100% { opacity: 1; transform: perspective(420px) rotate(-4deg) rotateX(0deg); }
+  }
+  @keyframes tapeApplyB {
+    0%   { opacity: 0; transform: perspective(420px) rotate(3deg) rotateX(-92deg) translateY(-7px); }
+    62%  { opacity: 1; transform: perspective(420px) rotate(3deg) rotateX(14deg); }
+    100% { opacity: 1; transform: perspective(420px) rotate(3deg) rotateX(0deg); }
+  }
+  @keyframes tapeApplyC {
+    0%   { opacity: 0; transform: perspective(420px) rotate(-3deg) rotateX(-92deg) translateY(-7px); }
+    62%  { opacity: 1; transform: perspective(420px) rotate(-3deg) rotateX(14deg); }
+    100% { opacity: 1; transform: perspective(420px) rotate(-3deg) rotateX(0deg); }
+  }
+  @keyframes stopInCard {
+    0%   { opacity: 0; transform: translate(-20px, -14px) rotate(-6deg) scale(.95); }
+    10%  { opacity: 1; transform: translate(-20px, -14px) rotate(-6deg) scale(.95); }
+    55%  { opacity: 1; transform: translate(-8px, -6px) rotate(2deg) scale(.985); }
+    100% { opacity: 1; transform: none; }
+  }
+  @keyframes caretBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+</style>
+<script>
+(function(){
+  function sw(t){ return (t && t.closest) ? t.closest('[data-swipe]') : null; }
+  document.addEventListener('mouseover', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-ulon'); }});
+  document.addEventListener('mouseout', function(e){ var el=sw(e.target); if(el){ el.style.backgroundSize=el.getAttribute('data-uloff'); }});
+})();
+</script>
+</helmet>
+<div style="font-family: 'EB Garamond', serif; background: #f5f0e6; color: #2b2620; min-height: 100vh;">
+
+  <!-- Header -->
+  <header style="max-width: 1140px; margin: 0 auto; padding: 34px clamp(20px, 5vw, 48px) 0 clamp(20px, 5vw, 48px); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px;">
+    <a href="./" style="font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; line-height: 1.18; color: #2b2620; white-space: nowrap;">Goonjan Saha</a>
+    <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; padding-top: 6px;">
+      <a href="./" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #2b2620; border-bottom: 1px solid #2b2620; padding-bottom: 2px;">Home</a>
+      <a href="./work.html" onMouseEnter="{{ enterNav0 }}" onMouseLeave="{{ leaveNav }}" style="{{ navWork }}">Work</a>
+      <a href="./hobbies.html" onMouseEnter="{{ enterNav1 }}" onMouseLeave="{{ leaveNav }}" style="{{ navHobbies }}">Hobbies</a>
+      <a href="./projects.html" onMouseEnter="{{ enterNav2 }}" onMouseLeave="{{ leaveNav }}" style="{{ navProjects }}">Projects</a>
+      <a href="./contact.html" onMouseEnter="{{ enterNav3 }}" onMouseLeave="{{ leaveNav }}" style="{{ navContact }}">Contact</a>
+      <sc-if value="{{ showBlogTag }}" hint-placeholder-val="{{ true }}">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0653a; border: 1px dashed #b0653a; padding: 4px 8px; transform: rotate(2deg); display: inline-block;">Blog soon</span>
+      </sc-if>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section data-screen-label="Hero" style="max-width: 1140px; margin: 0 auto; padding: 72px clamp(20px, 5vw, 48px) 64px clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 34px; align-items: center;">
+    <div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 26px; animation: fadeUp .6s ease both; animation-delay: .2s">Field journal · Entry 001</div>
+      <div style="position: relative;">
+        {{ headlineWriting }}
+        <h1 style="font-family: 'EB Garamond', serif; font-size: 52px; font-weight: 500; line-height: 1.08; margin: 0 0 24px 0; animation: solidify .55s ease both; animation-delay: 3.25s">Hi, I'm <span style="color: #B0653A; font-style: italic">Goonjan</span>.<br>Welcome to my corner of the internet!</h1>
+      </div>
+      <p style="font-size: 19px; line-height: 1.6; color: #5c5344; max-width: 480px; margin: 0 0 36px 0; animation: fadeUp .7s ease both; animation-delay: 2.9s">I am a <span style="color: #B0653A; font-weight: 600">computer science engineer</span> who enjoys <span style="color: #B0653A; font-weight: 600">designing</span>.<br>Weekdays with models — weekends with colors, eighty-eight keys, and Mother Nature.</p>
+      <div style="display: flex; gap: 14px; align-items: stretch; animation: fadeUp .6s ease both; animation-delay: 3.2s">
+        <a href="./work.html" onMouseEnter="{{ enterHero }}" onMouseLeave="{{ leaveBtn }}" style="{{ heroBtn }}">See work &amp; experience <span style="font-family: 'IBM Plex Mono', monospace;">→</span></a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; animation: stopIn .9s steps(1, end) both; animation-delay: 3.8s">
+      <div style="position: relative; background: #fffdf7; padding: 10px 10px 30px 10px; box-shadow: 0 6px 18px rgba(43,38,32,.18); transform: rotate(2.5deg); transition: all .35s ease; width: 300px;" style-hover="transform: rotate(0deg) translateY(-8px); box-shadow: 0 14px 30px rgba(43,38,32,.25);">
+        <div style="position: absolute; top: -12px; left: 50%; margin-left: -45px; width: 90px; height: 26px; background: rgba(216,207,186,.7); transform: rotate(-4deg); transform-origin: top center; z-index: 2; animation: tapeApply .5s ease both; animation-delay: 4.7s;"></div>
+        <div style="width: 300px; height: 300px;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-hero-photo" shape="rect" fit="cover" placeholder="Drop your photo" hint-size="300px,300px"></x-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works in progress -->
+  <section data-screen-label="Projects" style="max-width: 1140px; margin: 0 auto; padding: 0 48px 72px 48px; position: relative;">
+    <div style="border-top: 1px solid #d8cfba; padding-top: 22px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8a7f6a; margin-bottom: 40px; animation: fadeUp .6s ease both; animation-delay: 3.3s">Sneak peeks</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 30px; align-items: start;">
+        <div style="animation: stopInCard .55s steps(1, end) both; animation-delay: 4.15s"><a href="./projects.html" onMouseEnter="{{ enterCard0 }}" onMouseLeave="{{ leaveCard }}" style="{{ card0 }}">
+          <div style="position: absolute; top: -12px; left: 50%; margin-left: -40px; width: 80px; height: 24px; background: rgba(216,207,186,.7); transform: rotate(-4deg); transform-origin: top center; z-index: 2; animation: tapeApply .45s ease both; animation-delay: 4.65s;"></div>
+          <div style="height: 180px;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-card-projects" shape="rect" fit="cover" src="./uploads/Screenshot at 2026-08-10 21-49-58.png" placeholder="Drop a photo" hint-size="100%,180px"></x-import>
+          </div>
+          <div style="padding: 18px 12px 0 12px;">
+            <h3 style="font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 600; margin: 0 0 10px 0;">Built on weekends</h3>
+            <p style="font-size: 16px; line-height: 1.6; color: #5c5344; margin: 0 0 16px 0;">Using code to satiate my curiosity.</p>
+            <span style="{{ ul0 }}">Check out my Passion Projects →</span>
+          </div>
+        </a></div>
+        <div style="animation: stopInCard .55s steps(1, end) both; animation-delay: 4.5s"><a href="./hobbies.html" onMouseEnter="{{ enterCard1 }}" onMouseLeave="{{ leaveCard }}" style="{{ card1 }}">
+          <div style="position: absolute; top: -12px; left: 50%; margin-left: -40px; width: 80px; height: 24px; background: rgba(216,207,186,.7); transform: rotate(3deg); transform-origin: top center; z-index: 2; animation: tapeApplyB .45s ease both; animation-delay: 5s;"></div>
+          <div style="height: 180px;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-card-hobbies" shape="rect" fit="cover" src="./uploads/PXL_20240710_143926985~2.jpg" placeholder="Drop a photo" hint-size="100%,180px"></x-import>
+          </div>
+          <div style="padding: 18px 12px 0 12px;">
+            <h3 style="font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 600; margin: 0 0 10px 0;">Smudges with intent</h3>
+            <p style="font-size: 16px; line-height: 1.6; color: #5c5344; margin: 0 0 16px 0;">Pastels, paint, pencil — whatever the idea asks for.</p>
+            <span style="{{ ul1 }}">See my art →</span>
+          </div>
+        </a></div>
+        <div style="animation: stopInCard .55s steps(1, end) both; animation-delay: 4.85s"><a href="./hobbies.html#piano" onMouseEnter="{{ enterCard2 }}" onMouseLeave="{{ leaveCard }}" style="{{ card2 }}">
+          <div style="position: absolute; top: -12px; left: 50%; margin-left: -40px; width: 80px; height: 24px; background: rgba(216,207,186,.7); transform: rotate(-3deg); transform-origin: top center; z-index: 2; animation: tapeApplyC .45s ease both; animation-delay: 5.35s;"></div>
+          <div style="height: 180px;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-card-piano" shape="rect" fit="cover" src="./uploads/20260328_114549~3(1).jpg" placeholder="Drop a photo" hint-size="100%,180px"></x-import>
+          </div>
+          <div style="padding: 18px 12px 0 12px;">
+            <h3 style="font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 600; margin: 0 0 10px 0;">Mostly the right notes</h3>
+            <p style="font-size: 16px; line-height: 1.6; color: #5c5344; margin: 0 0 16px 0;">Recordings from the piano.</p>
+            <span style="{{ ul2 }}">Hear me play →</span>
+          </div>
+        </a></div>
+      </div>
+    </div>
+    <!-- Vine -->
+    <sc-if value="{{ showVine }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; left: 4px; top: 0; bottom: 0; width: 40px; pointer-events: none; overflow: hidden;">{{ vine }}</div>
+    </sc-if>
+  </section>
+
+  <!-- Footer / contact -->
+  <footer data-screen-label="Contact" style="background: #3b322a; color: #f5f0e6;">
+    <div style="max-width: 1140px; margin: 0 auto; padding: 72px clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 34px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'EB Garamond', serif; font-style: italic; font-size: 40px; font-weight: 500; line-height: 1.2; margin: 0 0 22px 0;">Let's connect!</h2>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; line-height: 2; text-transform: uppercase; color: #b3a892; margin: 0 0 26px 0;">Write to me from here,<br>or find me at —</p>
+        <div style="display: flex; gap: 26px;">
+          <a href="mailto:saha.goonjan@gmail.com" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #cfc4ac; padding-bottom: 3px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="100% 1px" data-uloff="0% 1px">Email</a>
+          <a href="https://www.linkedin.com/in/goonjan-saha" target="_blank" rel="noopener" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #cfc4ac; padding-bottom: 3px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="100% 1px" data-uloff="0% 1px">LinkedIn</a>
+          <a href="https://github.com/sgoonjan" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #cfc4ac; padding-bottom: 3px; background-image: linear-gradient(#f5f0e6, #f5f0e6); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .4s ease;" data-swipe="1" data-ulon="100% 1px" data-uloff="0% 1px" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div style="background: #fffdf7; padding: 26px; box-shadow: 0 8px 24px rgba(0,0,0,.25);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <input value="{{ name }}" onChange="{{ setName }}" placeholder="your name" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.06em; color: #2b2620; background: #fffdf7; border: 1px solid #d8cfba; border-radius: 0; padding: 12px 14px; outline: none; width: 100%; box-sizing: border-box;" style-focus="border-color: #5a6b4d;">
+          <input value="{{ email }}" onChange="{{ setEmail }}" placeholder="your email" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.06em; color: #2b2620; background: #fffdf7; border: 1px solid #d8cfba; border-radius: 0; padding: 12px 14px; outline: none; width: 100%; box-sizing: border-box;" style-focus="border-color: #5a6b4d;">
+        </div>
+        <textarea value="{{ message }}" onChange="{{ setMessage }}" placeholder="your message" rows="5" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.06em; color: #2b2620; background: #fffdf7; border: 1px solid #d8cfba; border-radius: 0; padding: 12px 14px; outline: none; width: 100%; box-sizing: border-box; resize: vertical;" style-focus="border-color: #5a6b4d;"></textarea>
+        <div style="display: flex; justify-content: flex-end; margin-top: 12px;">
+          <button onClick="{{ send }}" onMouseEnter="{{ enterSend }}" onMouseLeave="{{ leaveBtn }}" style="{{ sendBtn }}">{{ sendLabel }}</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showVine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Decoration&quot;},&quot;showBlogTag&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Header&quot;}}">
+const W3F_KEY = 'c40d4133-e59b-44ac-8ba1-b60a8d713a62';
+class Component extends DCLogic {
+  state = { name: '', email: '', message: '', sent: false, growth: 0, t: 0, hoverCard: null, navHover: null, btnHover: null };
+  componentDidMount() {
+    this._onScroll = () => {
+      const doc = document.documentElement;
+      const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const p = Math.min(1, Math.max(0.15, window.scrollY / max + 0.15));
+      if (Math.abs(p - this.state.growth) > 0.01) this.setState({ growth: p });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    this._start = performance.now();
+    this._tick = () => {
+      const t = performance.now() - this._start;
+      this.setState({ t });
+      if (t < 3800) this._raf = requestAnimationFrame(this._tick);
+    };
+    this._raf = requestAnimationFrame(this._tick);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); if (this._raf) cancelAnimationFrame(this._raf); }
+  renderVals() {
+    const e = React.createElement;
+    const growth = this.state.growth;
+
+    // Handwriting intro overlay: writes the headline in a hand, then dissolves as the serif "solidifies" in.
+    const t = this.state.t;
+    const WRITE_START = 550, PER_CHAR = 30, FADE_START = 3250, FADE_DUR = 470;
+    const PAUSE_AT = 16, PAUSE_MS = 1100; // hold after "Hi, I'm Goonjan." — natural caret blink
+    const segs = [
+      { text: "Hi, I'm ", style: {} },
+      { text: "Goonjan", style: { fontStyle: 'italic', color: '#B0653A' } },
+      { text: ".", style: {} },
+      { br: true },
+      { text: "Welcome to my corner of the internet!", style: {} }
+    ];
+    const totalChars = segs.reduce((n, s) => n + (s.br ? 0 : s.text.length), 0);
+    let reveal;
+    {
+      const elapsed = t - WRITE_START;
+      const tPause = PAUSE_AT * PER_CHAR;
+      if (elapsed <= 0) reveal = 0;
+      else if (elapsed <= tPause) reveal = Math.floor(elapsed / PER_CHAR);
+      else if (elapsed <= tPause + PAUSE_MS) reveal = PAUSE_AT;
+      else reveal = PAUSE_AT + Math.floor((elapsed - tPause - PAUSE_MS) / PER_CHAR);
+    }
+    reveal = Math.max(0, Math.min(totalChars, reveal));
+    const overlayOpacity = t < FADE_START ? 1 : Math.max(0, 1 - (t - FADE_START) / FADE_DUR);
+    let headlineWriting = null;
+    if (overlayOpacity > 0 && reveal > 0) {
+      let rem = reveal;
+      const parts = [];
+      segs.forEach((s, si) => {
+        if (rem <= 0) return;
+        if (s.br) { parts.push(e('br', { key: si })); return; }
+        const take = Math.min(rem, s.text.length);
+        parts.push(e('span', { key: si, style: s.style }, s.text.slice(0, take)));
+        rem -= take;
+      });
+      if (reveal < totalChars) {
+        const el2 = t - WRITE_START, tP = PAUSE_AT * PER_CHAR;
+        const inPause = el2 > tP && el2 <= tP + PAUSE_MS;
+        parts.push(e('span', { key: 'caret', style: { fontWeight: 400, opacity: 1, animation: inPause ? 'caretBlink 1.06s steps(1) infinite' : 'none' } }, '|'));
+      }
+      headlineWriting = e('div', {
+        style: {
+          position: 'absolute', top: 0, left: 0, width: '100%', margin: 0,
+          fontFamily: "'EB Garamond', serif", fontSize: '52px', fontWeight: 500,
+          lineHeight: 1.08, color: '#2b2620', pointerEvents: 'none',
+          opacity: overlayOpacity
+        }
+      }, parts);
+    }
+    const leaves = [];
+    const LEAF_COUNT = 6, H = 420;
+    for (let i = 0; i < LEAF_COUNT; i++) {
+      const top = 40 + i * ((H - 80) / (LEAF_COUNT - 1));
+      const left = i % 2 === 0;
+      const visible = growth * H > top + 20;
+      leaves.push(e('div', {
+        key: i,
+        style: {
+          position: 'absolute', top: top + 'px', width: '26px', height: '14px',
+          left: left ? '-24px' : '3px',
+          background: 'linear-gradient(135deg, #8ca174, #5a6b4d)',
+          borderRadius: i % 2 === 0 ? '0 100% 0 100%' : '100% 0 100% 0',
+          transform: (left ? 'rotate(-18deg)' : 'rotate(18deg) scaleX(-1)') + (visible ? ' scale(1)' : ' scale(0)'),
+          transformOrigin: left ? 'right center' : 'left center',
+          opacity: visible ? 1 : 0,
+          transition: 'transform .4s ease, opacity .4s ease'
+        }
+      }));
+    }
+    const vine = e('div', { style: { position: 'relative', height: H + 'px', width: '40px', marginLeft: '18px' } },
+      e('div', {
+        style: {
+          position: 'absolute', top: 0, left: 0, width: '2.5px', height: H + 'px',
+          background: 'linear-gradient(#8ca174, #5a6b4d)',
+          transform: 'scaleY(' + growth + ')', transformOrigin: 'top center',
+          transition: 'transform .4s ease'
+        }
+      }),
+      leaves
+    );
+    const bh = this.state.btnHover;
+    const heroBtn = { fontFamily: "'IBM Plex Mono', monospace", fontSize: '13px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#f5f0e6', padding: '15px 22px', display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: bh === 'hero' ? '#7d926a' : '#5A6B4D', backgroundImage: 'linear-gradient(#f5f0e6, #f5f0e6)', backgroundRepeat: 'no-repeat', backgroundPosition: '22px calc(100% - 11px)', backgroundSize: bh === 'hero' ? 'calc(100% - 44px) 1px' : '0% 1px', transition: 'background-color .3s ease, background-size .4s ease' };
+    const sendBtn = { fontFamily: "'IBM Plex Mono', monospace", fontSize: '13px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#f5f0e6', border: 'none', borderRadius: 0, padding: '13px 30px', cursor: 'pointer', whiteSpace: 'nowrap', backgroundColor: bh === 'send' ? '#7d926a' : '#5A6B4D', backgroundImage: 'linear-gradient(#f5f0e6, #f5f0e6)', backgroundRepeat: 'no-repeat', backgroundPosition: '30px calc(100% - 9px)', backgroundSize: bh === 'send' ? 'calc(100% - 60px) 1px' : '0% 1px', transition: 'background-color .3s ease, background-size .4s ease' };
+
+    const nh = this.state.navHover;
+    const navLink = (i) => ({ fontFamily: "'IBM Plex Mono', monospace", fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase', color: nh === i ? '#2b2620' : '#8a7f6a', paddingBottom: '2px', backgroundImage: 'linear-gradient(#2b2620, #2b2620)', backgroundRepeat: 'no-repeat', backgroundPosition: '0 100%', backgroundSize: nh === i ? '100% 1px' : '0% 1px', transition: 'color .3s ease, background-size .4s ease' });
+
+    const hc = this.state.hoverCard;
+    const ul = (i) => ({ fontFamily: "'IBM Plex Mono', monospace", fontSize: '12px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#5a6b4d', paddingBottom: '2px', backgroundImage: 'linear-gradient(#5a6b4d, #5a6b4d)', backgroundRepeat: 'no-repeat', backgroundPosition: '0 100%', backgroundSize: hc === i ? '100% 1px' : '0% 1px', transition: 'background-size .4s ease' });
+    const card = (i, baseRot, origin, mt) => {
+      const on = hc === i;
+      const dir = origin.indexOf('left') >= 0 ? -1 : 1; // hinge corner side
+      return {
+        position: 'relative', display: 'block', background: '#fffdf7',
+        padding: '10px 10px 24px 10px', color: '#2b2620',
+        transformOrigin: origin, transformStyle: 'preserve-3d',
+        transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease',
+        marginTop: mt || 0,
+        transform: on
+          ? `perspective(1100px) rotate3d(1, ${dir}, 0, 11deg) translateY(-6px) scale(1.015)`
+          : `rotate(${baseRot}deg)`,
+        boxShadow: on
+          ? `${-dir * 12}px 20px 30px rgba(43,38,32,.3)`
+          : '0 6px 18px rgba(43,38,32,.18)'
+      };
+    };
+
+    return {
+      vine,
+      headlineWriting,
+      enterCard0: () => this.setState({ hoverCard: 0 }),
+      enterCard1: () => this.setState({ hoverCard: 1 }),
+      enterCard2: () => this.setState({ hoverCard: 2 }),
+      leaveCard: () => this.setState({ hoverCard: null }),
+      enterNav0: () => this.setState({ navHover: 0 }),
+      enterNav1: () => this.setState({ navHover: 1 }),
+      enterNav2: () => this.setState({ navHover: 2 }),
+      enterNav3: () => this.setState({ navHover: 3 }),
+      leaveNav: () => this.setState({ navHover: null }),
+      heroBtn, sendBtn,
+      enterHero: () => this.setState({ btnHover: 'hero' }),
+      enterSend: () => this.setState({ btnHover: 'send' }),
+      leaveBtn: () => this.setState({ btnHover: null }),
+      navWork: navLink(0), navHobbies: navLink(1), navProjects: navLink(2), navContact: navLink(3),
+      ul0: ul(0), ul1: ul(1), ul2: ul(2),
+      card0: card(0, -2, 'bottom right', 0),
+      card1: card(1, 1.6, 'bottom left', '18px'),
+      card2: card(2, -1.2, 'bottom right', 0),
+      showVine: this.props.showVine ?? true,
+      showBlogTag: this.props.showBlogTag ?? true,
+      name: this.state.name, email: this.state.email, message: this.state.message,
+      setName: ev => this.setState({ name: ev.target.value }),
+      setEmail: ev => this.setState({ email: ev.target.value }),
+      setMessage: ev => this.setState({ message: ev.target.value }),
+      sendLabel: this.state.sent === 'sending' ? 'Sending\u2026' : this.state.sent === 'sent' ? 'Sent \u2713' : this.state.sent === 'error' ? 'Try again' : 'Send \u2192',
+      send: () => {
+        if (this.state.sent === 'sending') return;
+        const { name, email, message } = this.state;
+        this.setState({ sent: 'sending' });
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: W3F_KEY,
+            subject: 'New note from your website',
+            from_name: name || 'Website visitor',
+            name: name, email: email, message: message
+          })
+        }).then(r => r.json()).then(d => {
+          if (!d.success) throw new Error(d.message || 'failed');
+          this.setState({ sent: 'sent', name: '', email: '', message: '' });
+          setTimeout(() => this.setState({ sent: false }), 3200);
+        }).catch(() => {
+          this.setState({ sent: 'error' });
+          setTimeout(() => this.setState({ sent: false }), 3600);
+        });
+      }
+    };
+  }
+}
+</script>
 </body>
 </html>
